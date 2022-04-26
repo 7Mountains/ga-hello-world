@@ -4,6 +4,7 @@ Sample github action
 ## References
 
  - [Creating a JavaScript action](https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action)
+ - [Bassem Dghaidi, "How to Build Your First JavaScript GitHub Action", freecodecamp, Jan 2022](https://www.freecodecamp.org/news/build-your-first-javascript-github-action/)
 
 # Hello world javascript action
 
