@@ -10,7 +10,7 @@ Sample github action
 
 Adds information to PRs both when openend and when reviewed.
 
-### Rebuild after changing index.js before commit...
+### Rebuild after changing index.js before commit....
 ```
 ncc build index.js --license licenses.txt
 ```
