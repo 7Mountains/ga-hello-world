@@ -24,7 +24,7 @@ ncc build index.js --license licenses.txt
 ### Outputs
 
 ### `state`
-The review state. Set accoridng to event
+The review state. Set accoridng to event.
 
 ### Example usage
 
