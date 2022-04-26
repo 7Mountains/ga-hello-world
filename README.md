@@ -23,9 +23,9 @@ ncc build index.js --license licenses.txt
 
 ### Outputs
 
-### `time`
+### `state`
 
-The time we greeted you.
+The review state
 
 ### Example usage
 
