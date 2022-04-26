@@ -17,9 +17,9 @@ ncc build index.js --license licenses.txt
 
 ### Inputs
 
-### `who-to-greet`
+### `<name>`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** <desc>. Default `"<default value>"`.
 
 ### Outputs
 
