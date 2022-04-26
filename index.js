@@ -21,8 +21,8 @@ try {
    **/
   const owner = core.getInput("owner", { required: true });
   const repo = core.getInput("repo", { required: true });
-  const pr_number = core.getInput("pr_number", { required: true });
   const token = core.getInput("token", { required: true });
+  const { number: pr_number } = payload;
 
   console.log(`${owner}/${repo} (#${pr_number}) [${token}]`);
 
