@@ -11,9 +11,12 @@ jobs:
   annotate-pr:
     runs-on: ubuntu-latest
     name: Annotates pull request with metadata
+    outputs:
+      state: ${{ steps.annotate-pr.outputs.state }}
     steps:
       - name: Annotate PR
-        uses: 7Mountains/ga-hello-world@main
+        uses: 7Mountains/ga-pr-metadata@main
+        id: annotate-pr
         with:
           owner: ${{ github.repository_owner }}
           repo: ${{ github.event.repository.name }}
