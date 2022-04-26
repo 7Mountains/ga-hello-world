@@ -8775,6 +8775,8 @@ const getState = (payload) => {
   }
 };
 
+const { context: { payload = {} } = {} } = github;
+
 try {
   /**
    * We need to fetch all the inputs that were provided to our action
@@ -8786,8 +8788,6 @@ try {
   const { number: pr_number } = payload;
 
   console.log(`${owner}/${repo} (#${pr_number}) [${token}]`);
-
-  const { context: { payload = {} } = {} } = github;
 
   const state = getState(payload);
   console.log(`state: ${state}`);
