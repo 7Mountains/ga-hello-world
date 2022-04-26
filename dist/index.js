@@ -8762,8 +8762,8 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(8021);
 const github = __nccwpck_require__(4366);
 
-const getState = ({ event, payload }) => {
-  const { review: { state = "" } = {} } = event;
+const getState = (payload) => {
+  const { review: { state = "" } = {} } = payload;
   if (state) return state;
 
   const { action = "", pull_request: { merged = false } = {} } = payload;
@@ -8787,13 +8787,12 @@ try {
 
   console.log(`${owner}/${repo} (#${pr_number}) [${token}]`);
 
-  const { event = {}, context: { payload = {} } = {} } = github;
+  const { context: { payload = {} } = {} } = github;
 
-  const state = getState({ event, payload });
+  const state = getState(payload);
   console.log(`state: ${state}`);
   core.setOutput("state", state);
 
-  console.log(`event: ${JSON.stringify(event, 0, 1)}`);
   console.log(`payload: ${JSON.stringify(payload, 0, 1)}`);
 } catch (error) {
   core.setFailed(error.message);
