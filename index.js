@@ -13,12 +13,13 @@ try {
 
   console.log(`${owner}/${repo} (#${pr_number}) [${token}]`);
 
-  const time = new Date().toTimeString();
-  core.setOutput("time", time);
+  const { event = {}, context } = github;
 
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, 0, 2);
-  console.log(`Payload: ${payload}`);
+  const { review: { state = "" } = {} } = event;
+  core.setOutput("state", state);
+
+  console.log(`event: ${JSON.stringify(event, 0, 1)}`);
+  console.log(`payload: ${JSON.stringify(context.payload, 0, 1)}`);
 } catch (error) {
   core.setFailed(error.message);
 }

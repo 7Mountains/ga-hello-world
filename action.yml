@@ -14,8 +14,8 @@ inputs:
     description: 'The token to use to access the GitHub API'
     required: true
 outputs:
-  time: # id of output
-    description: 'Action time'
+  state: # New state
+    description: 'New state of PR'
 runs:
   using: 'node16'
   main: 'dist/index.js'
