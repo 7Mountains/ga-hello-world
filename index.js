@@ -1,6 +1,19 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
 
+const getState = ({ event, payload }) => {
+  const { review: { state = "" } = {} } = event;
+  if (state) return state;
+
+  const { action = "", pull_request: { merged = false } = {} } = payload;
+  switch (action) {
+    case "closed":
+      return merged ? "approved" : "closed";
+    default:
+      return action;
+  }
+};
+
 try {
   /**
    * We need to fetch all the inputs that were provided to our action
@@ -13,13 +26,14 @@ try {
 
   console.log(`${owner}/${repo} (#${pr_number}) [${token}]`);
 
-  const { event = {}, context } = github;
+  const { event = {}, context: { payload = {} } = {} } = github;
 
-  const { review: { state = "" } = {} } = event;
+  const state = getState({ event, payload });
+  console.log(`state: ${state}`);
   core.setOutput("state", state);
 
   console.log(`event: ${JSON.stringify(event, 0, 1)}`);
-  console.log(`payload: ${JSON.stringify(context.payload, 0, 1)}`);
+  console.log(`payload: ${JSON.stringify(payload, 0, 1)}`);
 } catch (error) {
   core.setFailed(error.message);
 }
