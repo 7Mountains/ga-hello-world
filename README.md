@@ -8,7 +8,7 @@ Sample github action
 
 ## Pull request action
 
-Adds pull request file changes as a comment to a new opened PR.
+Adds information to PRs both when openend and when reviewed.
 
 ### Rebuild after changing index.js before commit...
 ```
