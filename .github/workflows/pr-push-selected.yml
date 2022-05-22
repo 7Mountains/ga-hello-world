@@ -1,7 +1,5 @@
-  name: PR slack notification
-
+name: PR slack notification
 on: [push]
-
 jobs:
 
   notify-slack:
