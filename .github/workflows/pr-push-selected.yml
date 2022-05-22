@@ -1,4 +1,4 @@
-name: PR metadata annotation
+name: PR slack notification
 
 on: [push]
 
